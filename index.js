@@ -47,7 +47,8 @@ app.get('/', (req, res) => {
         //--- Отправить данные клиенту
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         res.write('<h1>Добро пожаловать на главную страницу сайта!</h1>');
-        res.end(`<p>Счётчик просмотров страницы = ${main_cnt} </p>`);
+        res.write(`<p>Счётчик просмотров страницы = ${main_cnt} </p>`);
+        res.end('<a href="http://localhost:3000/about">Переити на страницу "about"</a>');
 
         //--- Записать значение счётчика просмотров в структуру datainfo
         datainfo.main_cnt = main_cnt;
@@ -86,7 +87,8 @@ app.get('/about', (req, res) => {
         //--- Отправить данные клиенту
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         res.write('<h1>Страница about</h1>');
-        res.end(`<p>Счётчик просмотров страницы = ${about_cnt} </p>`);
+        res.write(`<p>Счётчик просмотров страницы = ${about_cnt} </p>`);
+        res.end('<a href="http://localhost:3000/">Переити на главную страницу</a>');
 
         //--- Записать значение счётчика просмотров в структуру datainfo
         datainfo.about_cnt = about_cnt;
